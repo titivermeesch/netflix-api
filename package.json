@@ -1,0 +1,44 @@
+{
+  "name": "netflix-api",
+  "version": "1.0.0",
+  "description": "Get all the data you need from netflix",
+  "main": "src/index.js",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  },
+  "engines": {
+    "node": "15.X"
+  },
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/titivermeesch/netflix-api.git"
+  },
+  "keywords": [
+    "netflix",
+    "stats"
+  ],
+  "author": "Tristan Vermeesch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/titivermeesch/netflix-stats/issues"
+  },
+  "homepage": "https://github.com/titivermeesch/netflix-stats#readme",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "cookie": "^0.4.0",
+    "express": "^4.17.1",
+    "memory-cache": "^0.2.0",
+    "puppeteer": "^5.5.0",
+    "puppeteer-extra": "^3.1.15",
+    "puppeteer-extra-plugin-stealth": "^2.6.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.16.0",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.1"
+  }
+}
