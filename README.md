@@ -11,6 +11,5 @@ The main idea is to have an abstract high-level API to interact with Netflix. Si
 
 ## REST API
 
-- POST /auth/login - login to platform. (Right now server stores cookie, which means that it's not yet possible to be used by more than 1 person).
-- GET /viewedItems/ - Get latest viewed items on Netflix (only shows first 20 right now)
-- GET /evaluator/ - Gets basic information about a hardcoded serie
+Have a look in the docs to know more about each endpoint.
+Each endpoint accepts JSON to return the data you need.

@@ -2,7 +2,7 @@ import axios from 'axios'
 import stringUriEncode from 'strict-uri-encode'
 import { mainCache } from '../index.js'
 
-const pathEvaluate = async (urlParamsObject, paths = []) => {
+const pathEvaluate = async (paths = []) => {
   const pathStrings = paths.map(
     path => '&path=' + stringUriEncode(JSON.stringify(path)),
   )
@@ -18,7 +18,7 @@ const pathEvaluate = async (urlParamsObject, paths = []) => {
     },
   })
 
-  return res.data
+  return res.data.value
 }
 
 export { pathEvaluate }
