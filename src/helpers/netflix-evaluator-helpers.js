@@ -1,10 +1,11 @@
 import axios from 'axios'
-import stringUriEncode from 'strict-uri-encode'
+// import stringUriEncode from 'strict-uri-encode'
 import { mainCache } from '../index.js'
+import { parseMultiCookieString } from './cookies/cookie-parser.js'
 
 const pathEvaluate = async (paths = []) => {
   const pathStrings = paths.map(
-    path => '&path=' + stringUriEncode(JSON.stringify(path)),
+    path => '&path=' + encodeURIComponent(JSON.stringify(path)),
   )
 
   const res = await axios({
@@ -14,7 +15,7 @@ const pathEvaluate = async (paths = []) => {
     )}/pathEvaluator?authURL=${mainCache.get('authURL')}${pathStrings}`,
     headers: {
       'Content-Type': 'multipart/form-data',
-      Cookie: mainCache.get('cookies'),
+      Cookie: parseMultiCookieString(mainCache.get('cookies')),
     },
   })
 

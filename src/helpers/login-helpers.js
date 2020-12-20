@@ -1,6 +1,5 @@
 import puppeteer from 'puppeteer-extra'
 import StealthPlugin from 'puppeteer-extra-plugin-stealth'
-import cookie from 'cookie'
 import { mainCache } from '../index.js'
 
 /**
@@ -42,7 +41,10 @@ const loginToNetflix = async (email, password) => {
   page.on('response', async response => {
     if (response.status() === 302 && response.url().includes('/login')) {
       const headers = response.headers()
-      mainCache.put('cookies', cookie.parse(headers['set-cookie']))
+      mainCache.put('cookies', headers['set-cookie'])
+      console.log(
+        'Netflix redirected us, seems like everything is going as planned',
+      )
       await browser.close()
     }
   })

@@ -19,7 +19,7 @@ pathEvaluatorRouter.get('/', async (req, res) => {
     ],
   ]
   try {
-    const data = await pathEvaluate('', paths)
+    const data = await pathEvaluate(paths)
     res.send(data)
   } catch (e) {
     console.error(e)
