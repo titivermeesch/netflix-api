@@ -1,9 +1,9 @@
 import express from 'express'
-import NetflixEntitySelectors from '../enums/NetflixEntitySelectors.js'
-import NetflixEntityTypes from '../enums/NetflixEntityTypes.js'
-import NetflixSearchTypes from '../enums/NetflixSearchTypes.js'
-import { pathEvaluate } from '../helpers/netflix-evaluator-helpers.js'
-import { getVideosArray } from '../helpers/videos/video-data-processing.js'
+import NetflixEntitySelectors from '../../enums/NetflixEntitySelectors.js'
+import NetflixEntityTypes from '../../enums/NetflixEntityTypes.js'
+import NetflixSearchTypes from '../../enums/NetflixSearchTypes.js'
+import { pathEvaluate } from '../../helpers/netflix-evaluator-helpers.js'
+import { getVideosArray } from '../../helpers/videos/video-data-processing.js'
 
 const searchRouter = express.Router()
 
@@ -27,6 +27,17 @@ searchRouter.post('/', async (req, res) => {
       1,
       { from: 0, to: limit - 1 },
       'summary',
+    ],
+    [
+      NetflixEntityTypes.SEARCH,
+      NetflixEntitySelectors.BY_TERM,
+      `|${term}`,
+      NetflixSearchTypes.TITLES,
+      1,
+      { from: 0, to: limit - 1 },
+      'boxart',
+      '_342x192',
+      'webp',
     ],
   ]
 

@@ -2,7 +2,7 @@ import express from 'express'
 import cache from 'memory-cache'
 import authRouter from './routes/authRouter.js'
 import pathEvaluatorRouter from './routes/pathEvaluatorRouter.js'
-import searchRouter from './routes/searchRouter.js'
+import searchRouter from './routes/search/searchRouter.js'
 import viewedItemsRouter from './routes/viewedItemsRouter.js'
 
 const mainCache = new cache.Cache()

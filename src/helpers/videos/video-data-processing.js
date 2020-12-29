@@ -24,6 +24,7 @@ const getVideosArray = (data, searchTerm) => {
       id: video.summary.id,
       name: video.summary.name,
       type: 'title',
+      image: video?.boxart?._342x192?.webp?.url,
     })
   }
 
